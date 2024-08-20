@@ -1,0 +1,240 @@
+A51 MACRO ASSEMBLER  22B3954_2                                                            02/10/2024 05:57:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\22b3954_2.obj
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE 22b3954_2.a51 SET(SMALL) DEBUG PRINT(.\Listings\22b3954_2.lst) OBJECT(.\Ob
+                      jects\22b3954_2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+0000                   2     ORG 0H
+0000 020100            3     LJMP MAIN
+0100                   4     ORG 100H
+0100                   5     MAIN:
+0100 120105            6     lcall determinant
+0103 80FE              7     HERE: SJMP HERE
+                       8     
+0105                   9     determinant:
+0105 A864             10             mov r0,64h
+0107 A965             11             mov r1, 65h
+0109 AA67             12             mov r2,67h
+010B AB68             13             mov r3, 68h
+010D 31E8             14             acall ab_cd
+010F E559             15             mov a, 59h
+0111 8560F0           16             mov b, 60h
+0114 A4               17             mul ab
+                      18             
+0115 F569             19             mov 69h, a
+0117 18               20             dec r0
+0118 19               21             dec r1
+0119 1A               22             dec r2
+011A 1B               23             dec r3
+                      24     
+011B 31E8             25             acall ab_cd
+                      26     
+                      27     
+011D E559             28             mov a, 59h
+011F 8562F0           29             mov b, 62h
+0122 A4               30             mul ab
+0123 4019             31             jc sub1
+0125 5024             32             jnc add1
+0127 F569             33             mov 69h,a
+                      34     
+0129 19               35             dec r1
+012A 1B               36             dec r3
+012B A865             37             mov r0,65h
+012D AA68             38             mov r2, 68h
+                      39     
+012F 31E8             40             call ab_cd
+                      41             
+0131 E559             42             mov a, 59h
+0133 8561F0           43             mov b, 61h
+                      44     
+0136 A4               45             mul ab
+                      46             
+0137 4005             47             jc sub1
+0139 5010             48             jnc add1
+                      49     
+                      50             
+                      51             
+013B 3150             52             call check_det
+013D 22               53     ret 
+013E                  54     sub1:
+013E C3               55                     clr c   
+013F F4               56                     cpl a
+0140 2401             57                     add a, #01h
+A51 MACRO ASSEMBLER  22B3954_2                                                            02/10/2024 05:57:04 PAGE     2
+
+0142 F5F0             58                     mov b, a
+0144 E569             59                     mov a, 69h
+0146 95F0             60                     subb a,b 
+0148 F569             61                     mov 69h, a
+014A 22               62                     ret
+                      63                     
+014B 2569             64     add1: add a, 69h
+014D F569             65             mov 69h,a
+014F 22               66             ret
+0150                  67     check_det:
+0150 E569             68             mov a, 69h
+0152 B40002           69             cjne a, #00h, inverse_matrix
+0155 3103             70             call here
+0157                  71     inverse_matrix:
+0157 8569F0           72             mov b, 69h
+015A 7B09             73             mov r3, #09h
+015C 7870             74             mov r0,#70h
+015E 7970             75             mov r1, #70h
+0160 3169             76             acall adj_a
+0162                  77             loop:
+0162 E6               78                     mov a, @r0
+0163 84               79                     div ab
+0164 F6               80                     mov @r0, a
+0165 08               81                     inc r0
+0166 DBFA             82                     djnz r3, loop
+0168 22               83     ret
+                      84     
+                      85     
+0169                  86     adj_a:
+0169 A860             87     mov r0,60h
+016B A961             88     mov r1,61h
+016D AA63             89     mov r2, 63h
+016F AB64             90     mov r3,64h
+                      91     
+0171 31E8             92     call ab_cd
+                      93     
+0173 E559             94     mov a, 59h
+0175 F578             95     mov 78h, a
+                      96     
+0177 A862             97     mov r0,62h
+0179 A960             98     mov r1,60h
+017B AA65             99     mov r2, 65h
+017D AB63            100     mov r3,63h
+                     101     
+017F 31E8            102     call ab_cd
+                     103     
+0181 E559            104     mov a, 59h
+0183 F575            105     mov 75h, a
+                     106     
+                     107     
+0185 A860            108     mov r0,60h
+0187 A962            109     mov r1,62h
+0189 AA64            110     mov r2, 64h
+018B AB65            111     mov r3,65h
+                     112     
+018D 31E8            113     call ab_cd
+                     114     
+018F E559            115     mov a, 59h
+0191 F572            116     mov 72h, a
+                     117     
+0193 A861            118     mov r0,61h
+0195 A960            119     mov r1,60h
+0197 AA67            120     mov r2,67h
+0199 AB66            121     mov r3,66h
+                     122     
+019B 31E8            123     call ab_cd
+A51 MACRO ASSEMBLER  22B3954_2                                                            02/10/2024 05:57:04 PAGE     3
+
+                     124     
+019D E559            125     mov a, 59h
+019F F577            126     mov 77h, a
+                     127     
+01A1 A860            128     mov r0,60h
+01A3 A962            129     mov r1,62h
+01A5 AA66            130     mov r2,66h
+01A7 AB68            131     mov r3,68h
+                     132     
+01A9 31E8            133     call ab_cd
+                     134     
+01AB E559            135     mov a, 59h
+01AD F574            136     mov 74h, a
+                     137     
+01AF A862            138     mov r0,62h
+01B1 A961            139     mov r1,61h
+01B3 AA68            140     mov r2,68h
+01B5 AB67            141     mov r3,67h
+                     142     
+01B7 31E8            143     call ab_cd
+                     144     
+01B9 E559            145     mov a, 59h
+01BB F571            146     mov 71h, a
+                     147     
+                     148     
+01BD A863            149     mov r0,63h
+01BF A964            150     mov r1,64h
+01C1 AA66            151     mov r2,66h
+01C3 AB67            152     mov r3,67h
+                     153     
+01C5 31E8            154     call ab_cd
+                     155     
+01C7 E559            156     mov a, 59h
+01C9 F576            157     mov 76h, a
+                     158     
+01CB A865            159     mov r0,65h
+01CD A963            160     mov r1,63h
+01CF AA68            161     mov r2,68h
+01D1 AB66            162     mov r3,66h
+                     163     
+01D3 31E8            164     call ab_cd
+                     165     
+01D5 E559            166     mov a, 59h
+01D7 F573            167     mov 73h, a
+                     168     
+                     169     
+01D9 A864            170     mov r0,64h
+01DB A965            171     mov r1,65h
+01DD AA67            172     mov r2,67h
+01DF AB68            173     mov r3,68h
+                     174     
+01E1 31E8            175     call ab_cd
+                     176     
+01E3 E559            177     mov a, 59h
+01E5 F570            178     mov 70h, a
+                     179     
+                     180     
+01E7 22              181     ret
+                     182     
+                     183     
+01E8                 184     ab_cd:
+01E8 E8              185             mov a, r0
+01E9 8BF0            186             mov b, r3
+01EB A4              187             mul ab
+01EC F558            188             mov 58h, a
+01EE E9              189             mov a, r1
+A51 MACRO ASSEMBLER  22B3954_2                                                            02/10/2024 05:57:04 PAGE     4
+
+01EF 8AF0            190             mov b, r2
+01F1 A4              191             mul ab
+01F2 F557            192             mov 57h, a
+01F4 E558            193             mov a, 58h
+01F6 C3              194             clr c
+01F7 9557            195             subb a, 57h
+01F9 F559            196             mov 59h, a
+01FB 22              197     ret
+                     198     
+                     199     END
+A51 MACRO ASSEMBLER  22B3954_2                                                            02/10/2024 05:57:04 PAGE     5
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AB_CD. . . . . . .  C ADDR   01E8H   A   
+ADD1 . . . . . . .  C ADDR   014BH   A   
+ADJ_A. . . . . . .  C ADDR   0169H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CHECK_DET. . . . .  C ADDR   0150H   A   
+DETERMINANT. . . .  C ADDR   0105H   A   
+HERE . . . . . . .  C ADDR   0103H   A   
+INVERSE_MATRIX . .  C ADDR   0157H   A   
+LOOP . . . . . . .  C ADDR   0162H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+SUB1 . . . . . . .  C ADDR   013EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

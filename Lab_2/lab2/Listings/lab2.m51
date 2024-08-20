@@ -1,0 +1,58 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/22/2024  15:47:44  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE .\Objects\16bit_add.obj TO .\Objects\lab2 PRINT (.\Listings\lab2.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\16bit_add.obj (16BIT_ADD)
+
+
+LINK MAP OF MODULE:  .\Objects\lab2 (16BIT_ADD)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0145H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\lab2 (16BIT_ADD)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        16BIT_ADD
+  C:0130H         SYMBOL        ADD16
+  C:0102H         SYMBOL        HERE
+  C:0100H         SYMBOL        MAIN
+  D:00D0H         SYMBOL        PSW
+  C:0000H         LINE#         3
+  C:0100H         LINE#         6
+  C:0102H         LINE#         7
+  C:0130H         LINE#         11
+  C:0132H         LINE#         12
+  C:0134H         LINE#         13
+  C:0136H         LINE#         15
+  C:0138H         LINE#         16
+  C:013AH         LINE#         17
+  C:013CH         LINE#         19
+  C:013EH         LINE#         20
+  C:0140H         LINE#         21
+  C:0141H         LINE#         22
+  C:0142H         LINE#         25
+  C:0144H         LINE#         28
+  -------         ENDMOD        16BIT_ADD
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001CH BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=325
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

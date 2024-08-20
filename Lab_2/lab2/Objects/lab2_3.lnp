@@ -1,0 +1,3 @@
+".\Objects\largest_array.obj" 
+TO ".\Objects\lab2_3" 
+PRINT(".\Listings\lab2_3.m51") RAMSIZE(256) 

@@ -1,0 +1,54 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    01/22/2024  16:28:51  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE .\Objects\xor_a_b.obj TO .\Objects\lab2_2 PRINT (.\Listings\lab2_2.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\xor_a_b.obj (XOR_A_B)
+
+
+LINK MAP OF MODULE:  .\Objects\lab2_2 (XOR_A_B)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0141H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\lab2_2 (XOR_A_B)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        XOR_A_B
+  D:00F0H         SYMBOL        B
+  C:0102H         SYMBOL        HERE
+  C:0100H         SYMBOL        MAIN
+  C:0130H         SYMBOL        XORSWAP
+  C:0000H         LINE#         3
+  C:0100H         LINE#         6
+  C:0102H         LINE#         7
+  C:0130H         LINE#         11
+  C:0132H         LINE#         12
+  C:0135H         LINE#         13
+  C:0137H         LINE#         14
+  C:0139H         LINE#         15
+  C:013BH         LINE#         16
+  C:013DH         LINE#         17
+  C:0140H         LINE#         19
+  -------         ENDMOD        XOR_A_B
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0018H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=321
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

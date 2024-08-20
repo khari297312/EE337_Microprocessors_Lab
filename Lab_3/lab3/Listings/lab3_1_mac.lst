@@ -1,0 +1,76 @@
+A51 MACRO ASSEMBLER  LAB3_1_MAC                                                           01/27/2024 15:30:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\lab3_1_mac.obj
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE lab3_1_mac.a51 SET(SMALL) DEBUG PRINT(.\Listings\lab3_1_mac.lst) OBJECT(.\
+                      Objects\lab3_1_mac.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+0000                   2     ORG 0H
+0000 020100            3     LJMP MAIN
+0100                   4     ORG 100H
+0100                   5     MAIN:
+0100 3130              6     CALL MAC
+0102 80FE              7     HERE: SJMP HERE
+0130                   8     ORG 130H
+                       9     
+0130                  10     MAC:
+                      11     
+0130 E570             12     mov a, 70h
+0132 8573F0           13     mov b, 73h
+0135 A4               14     mul ab
+0136 F570             15     mov 70h,a
+0138 85F073           16     mov 73h,b
+013B 900075           17     mov dptr , #75h
+                      18     
+013E E0               19     movx a, @ dptr
+013F 25F0             20     add a,b
+                      21     
+0141 F580             22     mov 80h, a
+0143 A3               23     inc dptr
+0144 22               24     RET
+                      25     
+                      26     
+0145                  27     ADD16:
+0145 E571             28     mov a,71h
+0147 2573             29     add a,73h
+0149 F576             30     mov 76h, a
+                      31     
+014B E570             32     mov a, 70h 
+014D 3572             33     addc a, 72h
+014F F575             34     mov 75h, a
+                      35     
+0151 E5D0             36     mov a, psw
+0153 5440             37     anl a, #40h
+0155 23               38     rl a
+0156 23               39     rl a
+                      40     
+                      41     
+0157 F574             42     MOV 74h, A 
+                      43     
+                      44     
+0159 22               45     RET
+                      46     END
+A51 MACRO ASSEMBLER  LAB3_1_MAC                                                           01/27/2024 15:30:04 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADD16. . . . . . .  C ADDR   0145H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+HERE . . . . . . .  C ADDR   0102H   A   
+MAC. . . . . . . .  C ADDR   0130H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

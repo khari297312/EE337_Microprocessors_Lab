@@ -1,0 +1,72 @@
+A51 MACRO ASSEMBLER  LARGEST_ARRAY                                                        01/23/2024 09:13:13 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\largest_array.obj
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE largest_array.a51 SET(SMALL) DEBUG PRINT(.\Listings\largest_array.lst) OBJ
+                      ECT(.\Objects\largest_array.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0H
+0000 020100            2     LJMP MAIN
+0100                   3     ORG 100H
+0100                   4     MAIN:
+0100 3130              5     CALL MAX
+0102 80FE              6     HERE: SJMP HERE
+0130                   7     ORG 130H
+                       8     
+0130                   9     MAX:
+0130 7A09             10             MOV R2, #09H
+0132 7860             11             MOV R0, #60H
+                      12             
+0134                  13     LOOP:   
+0134 C3               14             CLR C
+0135 E6               15             MOV A, @R0
+0136 F5F0             16             MOV b, A
+0138 A970             17             MOV R1,70H
+013A 08               18             INC R0
+                      19             
+013B 99               20             SUBB A, R1
+013C 5004             21             JNC not_carry
+013E 4009             22             JC carry
+0140 80FE             23             STOP: SJMP STOP
+                      24             
+0142                  25     not_carry:
+0142 85F070           26             MOV 70H, b
+0145 DAED             27             DJNZ R2, LOOP
+0147 80F7             28             SJMP STOP
+                      29             
+                      30             
+0149                  31     carry: 
+0149 8970             32             MOV 70H, R1
+014B DAE7             33             DJNZ R2, LOOP
+014D 80F1             34             SJMP STOP
+                      35             
+                      36     
+                      37     
+                      38             
+                      39     
+                      40     END
+A51 MACRO ASSEMBLER  LARGEST_ARRAY                                                        01/23/2024 09:13:13 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+CARRY. . . . . . .  C ADDR   0149H   A   
+HERE . . . . . . .  C ADDR   0102H   A   
+LOOP . . . . . . .  C ADDR   0134H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+MAX. . . . . . . .  C ADDR   0130H   A   
+NOT_CARRY. . . . .  C ADDR   0142H   A   
+STOP . . . . . . .  C ADDR   0140H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

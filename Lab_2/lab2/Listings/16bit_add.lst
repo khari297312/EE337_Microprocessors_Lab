@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  16BIT_ADD                                                            01/22/2024 15:47:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\16bit_add.obj
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.EXE 16bit_add.a51 SET(SMALL) DEBUG PRINT(.\Listings\16bit_add.lst) OBJECT(.\Ob
+                      jects\16bit_add.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+0000                   2     ORG 0H
+0000 020100            3     LJMP MAIN
+0100                   4     ORG 100H
+0100                   5     MAIN:
+0100 3130              6     CALL ADD16
+0102 80FE              7     HERE: SJMP HERE
+0130                   8     ORG 130H
+                       9     
+0130                  10     ADD16:
+0130 E571             11     mov a, 71h
+0132 2573             12     add a,73h
+0134 F576             13     mov 76h, a
+                      14     
+0136 E570             15     mov a, 70h 
+0138 3572             16     addc a, 72h
+013A F575             17     mov 75h, a
+                      18     
+013C E5D0             19     mov a, psw
+013E 5440             20     anl a, #40h
+0140 23               21     rl a
+0141 23               22     rl a
+                      23     
+                      24     
+0142 F574             25     MOV 74h, A 
+                      26     
+                      27     
+0144 22               28     RET
+                      29     END
+A51 MACRO ASSEMBLER  16BIT_ADD                                                            01/22/2024 15:47:44 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADD16. . . . . . .  C ADDR   0130H   A   
+HERE . . . . . . .  C ADDR   0102H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
